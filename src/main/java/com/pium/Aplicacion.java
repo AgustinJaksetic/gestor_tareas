@@ -1,20 +1,22 @@
 package com.pium;
 
-import com.pium.repository.TareaDao;
+import com.pium.builder.Tareas;
 import com.pium.service.TareasService;
 
+import java.util.HashMap;
 
 public class Aplicacion {
     public Aplicacion() {
-
         TareasService.crearTarea();
         TareasService.crearTarea();
 
-        TareaDao.getTareas();
+        HashMap<Integer, Tareas> listas;
 
-        TareaDao.getTarea(1).setDescripcion("Descripcion actualizada");
+        listas = TareasService.listatareasCompletas();
 
-        System.out.println(TareaDao.getTarea(1));
+        listas.get(1).setDescripcion("Descripcion actualizada");
+
+        System.out.println(listas);
 
     }
 }
