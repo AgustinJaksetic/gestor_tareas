@@ -1,6 +1,8 @@
 package com.pium.repository;
 import com.pium.builder.Tareas;
 
+import java.util.HashMap;
+
 public class TareaDao {
 
     /*
@@ -16,7 +18,7 @@ public class TareaDao {
         TareasDB.db_tareas.put(tarea.getId(), tarea);
     }
 
-    public static void getTareas() { //Se encarga de hacer una consulta para obtener todas las tareas de la base de datos.
-        TareasDB.db_tareas.forEach((k, v) -> System.out.println(v));
+    public static HashMap<Integer, Tareas> getTareas() { //Se encarga de hacer una consulta para obtener todas las tareas de la base de datos.
+        return TareasDB.db_tareas;
     }
 }
