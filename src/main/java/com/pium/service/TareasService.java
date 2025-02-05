@@ -61,11 +61,10 @@ public class TareasService {
     }
 
     public static HashMap<Integer, Tareas> listatareasCompletas() {
-        HashMap<Integer, Tareas> tareasCompletas = listaTareas();
 
-        return tareasCompletas.entrySet().stream()
+        return listaTareas().entrySet().stream()
+
                 .filter(entry -> entry.getValue().getEstado() == Estado.FINALIZADA)
-                .sorted(Map.Entry.comparingByValue(Comparator.comparing(Tareas::getEstado)))
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
                         Map.Entry::getValue,
