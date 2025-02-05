@@ -1,15 +1,15 @@
 package com.pium.service;
 
 import com.pium.builder.Actividades;
+import com.pium.builder.Tareas;
 import com.pium.builder.TareasBuilder;
 import com.pium.builder.enums.Estado;
 import com.pium.builder.enums.Prioridad;
 import com.pium.repository.TareaDao;
 import com.pium.repository.TareasDB;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class TareasService {
     public static Scanner Scanner = new Scanner(System.in);
@@ -27,18 +27,18 @@ public class TareasService {
                 .setDescripcion("Descripcion 1")
                 .setActividades(crearActividades())
                 .setPrioridad(Prioridad.ALTA)
-                .setEstado(Estado.SIN_EMPEZAR)
+                .setEstado(Estado.FINALIZADA)
                 .setId(TareasDB.generateId())
                 .build()
         );
     }
 
-    public static void tituloUpdate(int id){ //Actualizamos el título de la tarea indicada por él id.
-        TareaDao.getTarea(id).setTitulo(Scanner.nextLine());
+    public static void tituloUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
+        TareaDao.getTarea(id).setTitulo(titulo);
     }
 
-    public static void descripcionUpdate(int id){ //Actualizamos la descripcion de la tarea indicada por él id.
-        TareaDao.getTarea(id).setDescripcion(Scanner.nextLine());
+    public static void descripcionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
+        TareaDao.getTarea(id).setDescripcion(descripcion);
     }
 
     public static List<Actividades> crearActividades(){
@@ -54,5 +54,23 @@ public class TareasService {
         } while (!Scanner.nextLine().equalsIgnoreCase("no"));
 
         return lista;
+    }
+
+    public static HashMap<Integer, Tareas> listaTareas(){
+        return TareaDao.getTareas();
+    }
+
+    public static HashMap<Integer, Tareas> listatareasCompletas() {
+        HashMap<Integer, Tareas> tareasCompletas = listaTareas();
+
+        return tareasCompletas.entrySet().stream()
+                .filter(entry -> entry.getValue().getEstado() == Estado.FINALIZADA)
+                .sorted(Map.Entry.comparingByValue(Comparator.comparing(Tareas::getEstado)))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (k, v) -> k,
+                        HashMap::new
+                ));
     }
 }
