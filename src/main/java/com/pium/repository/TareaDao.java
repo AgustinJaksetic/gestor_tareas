@@ -10,7 +10,7 @@ public class TareaDao {
         Base de datos ( en este caso usamos un hashmap como base de datos ).
      */
 
-    public static Tareas getTarea(int id) { //Se encarga de hacer una consulta para obtener un objeto Tareas.
+    public static Tareas getTarea(Integer id) { //Se encarga de hacer una consulta para obtener un objeto Tareas.
         return TareasDB.db_tareas.get(id);
     }
 

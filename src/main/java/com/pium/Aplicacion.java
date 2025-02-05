@@ -11,6 +11,8 @@ public class Aplicacion {
         TareasService.crearTarea();
 
         HashMap<Integer, Tareas> listas;
+        TareasService.tituloUpdate(2, "Titulo Actualizado");
+        TareasService.descripcionUpdate(2, "Descripcion Actualizada");
 
         listas = TareasService.listatareasCompletas();
 
