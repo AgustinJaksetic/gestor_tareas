@@ -12,20 +12,20 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class TareasService {
-    private final Scanner Scanner = new Scanner(System.in);
     private static final TareaDao tareaDao = new TareaDao();
     /*
         En TareaService nos encargamos de gestionar la creación de las tareas
-        y las validaciones, excepciones, y toda la demás lógica de negocio.
+        y las validaciones, excepciones básicamente toda la demás lógica de negocio.
      */
 
-    public void crearTarea(){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
+    public void crearTarea(Scanner input){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
+        List<Actividades> actividades = crearActividades(input);
         tareaDao.queryTareas(
             new TareasBuilder()
                 .setTitulo("Tarea 1")
                 .setDescripcion("Descripcion 1")
-                .setActividades(crearActividades())
                 .setPrioridad(Prioridad.ALTA)
+                .setActividades(actividades)
                 .setEstado(Estado.FINALIZADA)
                 .setId(TareasDB.generateId())
                 .build()
@@ -40,7 +40,7 @@ public class TareasService {
         tareaDao.getTarea(id).setDescripcion(descripcion);
     }
 
-    public List<Actividades> crearActividades(){
+    public List<Actividades> crearActividades(Scanner input){
         List<Actividades> lista = new ArrayList<>();
         System.out.println("Crear una actividad");
         int a = 1;
@@ -48,7 +48,7 @@ public class TareasService {
             lista.add(new Actividades("Actividad "+ a, "Descripcion " + a, a++));
             System.out.println("Crear otra actividad?");
 
-        } while (!Scanner.nextLine().equalsIgnoreCase("no"));
+        } while (!input.nextLine().equalsIgnoreCase("no"));
 
         return lista;
     }
