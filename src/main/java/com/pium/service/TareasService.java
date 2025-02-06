@@ -6,13 +6,13 @@ import com.pium.builder.TareasBuilder;
 import com.pium.builder.enums.Estado;
 import com.pium.builder.enums.Prioridad;
 import com.pium.repository.TareaDao;
+import com.pium.repository.TareaDaoInterface;
 import com.pium.repository.TareasDB;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TareasService {
-    private static final TareaDao tareaDao = new TareaDao();
+    private static final TareaDaoInterface tareaDao = new TareaDao();
     /*
         En TareaService nos encargamos de gestionar la creación de las tareas
         y las validaciones, excepciones básicamente toda la demás lógica de negocio.
@@ -58,9 +58,7 @@ public class TareasService {
     }
 
     public Map<Integer, Tareas> listatareasCompletas() {
-        return tareaDao.getTareas().entrySet().stream()
-                .filter(entry -> entry.getValue().getEstado() == Estado.FINALIZADA)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        return tareaDao.getTareasCompletadas();
     }
 
 }
