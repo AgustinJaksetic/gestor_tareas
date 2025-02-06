@@ -2,7 +2,7 @@ package com.pium.repository;
 import com.pium.builder.Tareas;
 import java.util.HashMap;
 
-public class TareasDB {
+public class TaskRepositoryDB {
     /*
     En TareasDB es donde tenemos nuestra construcción de la base de datos
     donde creamos las tablas con sus registros y campos, (en este caso usamos un hashmap como sustituto).
