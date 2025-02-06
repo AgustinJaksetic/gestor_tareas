@@ -1,14 +1,14 @@
 package com.pium;
 
 import com.pium.builder.Tareas;
+import com.pium.repository.TareaDao;
 import com.pium.service.TareasService;
 
 import java.util.Map;
 import java.util.Scanner;
 
-
 public class Aplicacion {
-    public TareasService tareasService = new TareasService();
+    public TareasService tareasService = new TareasService(new TareaDao());
     public Scanner scanner = new Scanner(System.in);
 
     public Aplicacion() {
