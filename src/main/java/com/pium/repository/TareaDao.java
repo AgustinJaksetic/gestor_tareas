@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public final class TareaDao implements TareaDaoInterface {
+public final class TareaDao implements Repositorio {
 
     /*
         TareasDao se encarga de hacer todas las consultas a nuestra

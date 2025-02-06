@@ -5,7 +5,7 @@ import com.pium.builder.Tareas;
 import java.util.HashMap;
 import java.util.Map;
 
-public interface TareaDaoInterface {
+public interface Repositorio {
     Tareas getTarea(Integer id);
     void queryTareas(Tareas tarea);
     HashMap<Integer, Tareas> getTareas();

@@ -5,7 +5,7 @@ import com.pium.builder.Tareas;
 import com.pium.builder.TareasBuilder;
 import com.pium.builder.enums.Estado;
 import com.pium.builder.enums.Prioridad;
-import com.pium.repository.TareaDaoInterface;
+import com.pium.repository.Repositorio;
 import com.pium.repository.TareasDB;
 
 import java.util.*;
@@ -15,9 +15,9 @@ public class TareasService {
         En TareaService nos encargamos de gestionar la creación de las tareas
         y las validaciones, excepciones básicamente toda la demás lógica de negocio.
      */
-    private final TareaDaoInterface tareaDao;
+    private final Repositorio tareaDao;
 
-    public TareasService(TareaDaoInterface tareaDao) { //inyección de dependencias para que si quiero hacer tests en un futuro o cambiar a una base de datos.
+    public TareasService(Repositorio tareaDao) { //inyección de dependencias para que si quiero hacer tests en un futuro o cambiar a una base de datos.
         this.tareaDao = tareaDao;
     }
 
