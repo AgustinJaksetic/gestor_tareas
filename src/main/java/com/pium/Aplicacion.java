@@ -3,20 +3,22 @@ package com.pium;
 import com.pium.builder.Tareas;
 import com.pium.service.TareasService;
 
-import java.util.HashMap;
+import java.util.Map;
+
 
 public class Aplicacion {
+    public TareasService tareasService = new TareasService();
     public Aplicacion() {
-        TareasService.crearTarea();
-        TareasService.crearTarea();
+        tareasService.crearTarea();
+        tareasService.crearTarea();
 
-        HashMap<Integer, Tareas> listas;
-        TareasService.tituloUpdate(2, "Titulo Actualizado");
-        TareasService.descripcionUpdate(2, "Descripcion Actualizada");
+        Map<Integer, Tareas> listas;
+        tareasService.tituloUpdate(2, "Titulo Actualizado");
+        tareasService.descripcionUpdate(2, "Descripcion Actualizada");
 
-        listas = TareasService.listatareasCompletas();
+        listas = tareasService.listatareasCompletas();
 
-        listas.get(1).setDescripcion("Descripcion actualizada");
+        tareasService.tituloUpdate(1, "test titulo");
 
         System.out.println(listas);
 
