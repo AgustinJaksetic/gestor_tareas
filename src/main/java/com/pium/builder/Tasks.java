@@ -5,16 +5,16 @@ import com.pium.builder.enums.Prioridad;
 
 import java.util.List;
 
-public class Tareas{
+public class Tasks {
 
     private final Integer id;
     private String titulo;
     private String descripcion;
     private Estado estado;
     private Prioridad prioridad;
-    private final List<Actividades> actividades;
+    private final List<Activities> actividades;
 
-    public Tareas(TareasBuilder builder) {
+    public Tasks(TasksBuilder builder) {
         this.titulo = builder.getTitulo();
         this.descripcion = builder.getDescripcion();
         this.estado = builder.getEstado();
@@ -24,7 +24,7 @@ public class Tareas{
 
     }
 
-    public List<Actividades> getActividades() {
+    public List<Activities> getActividades() {
         return actividades;
     }
 

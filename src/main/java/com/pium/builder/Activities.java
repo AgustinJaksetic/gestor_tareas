@@ -1,11 +1,11 @@
 package com.pium.builder;
 
-public class Actividades {
+public class Activities {
     private final int id;
     private String titulo;
     private String descripcion;
 
-    public Actividades(String titulo, String descripcion, int id) {
+    public Activities(String titulo, String descripcion, int id) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;

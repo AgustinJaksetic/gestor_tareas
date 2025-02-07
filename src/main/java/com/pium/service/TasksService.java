@@ -1,8 +1,8 @@
 package com.pium.service;
 
-import com.pium.builder.Actividades;
-import com.pium.builder.Tareas;
-import com.pium.builder.TareasBuilder;
+import com.pium.builder.Activities;
+import com.pium.builder.Tasks;
+import com.pium.builder.TasksBuilder;
 import com.pium.builder.enums.Estado;
 import com.pium.builder.enums.Prioridad;
 import com.pium.repository.Repository;
@@ -10,21 +10,21 @@ import com.pium.repository.TaskRepositoryDB;
 
 import java.util.*;
 
-public class TareasService {
+public class TasksService {
     /*
         En TareaService nos encargamos de gestionar la creación de las tareas
         y las validaciones, excepciones básicamente toda la demás lógica de negocio.
      */
     private final Repository tareaDao;
 
-    public TareasService(Repository tareaDao) { //inyección de dependencias para que si quiero hacer tests en un futuro o cambiar a una base de datos.
+    public TasksService(Repository tareaDao) { //inyección de dependencias para que si quiero hacer tests en un futuro o cambiar a una base de datos.
         this.tareaDao = tareaDao;
     }
 
     public void crearTarea(Scanner input){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
-        List<Actividades> actividades = crearActividades(input);
+        List<Activities> actividades = crearActividades(input);
         tareaDao.queryTareas(
-            new TareasBuilder()
+            new TasksBuilder()
                 .setTitulo("Tarea 1")
                 .setDescripcion("Descripcion 1")
                 .setPrioridad(Prioridad.ALTA)
@@ -43,12 +43,12 @@ public class TareasService {
         tareaDao.getTarea(id).setDescripcion(descripcion);
     }
 
-    public List<Actividades> crearActividades(Scanner input){
-        List<Actividades> lista = new ArrayList<>();
+    public List<Activities> crearActividades(Scanner input){
+        List<Activities> lista = new ArrayList<>();
         System.out.println("Crear una actividad");
         int a = 1;
         do {
-            lista.add(new Actividades("Actividad "+ a, "Descripcion " + a, a++));
+            lista.add(new Activities("Actividad "+ a, "Descripcion " + a, a++));
             System.out.println("Crear otra actividad?");
 
         } while (!input.nextLine().equalsIgnoreCase("no"));
@@ -56,11 +56,11 @@ public class TareasService {
         return lista;
     }
 
-    public HashMap<Integer, Tareas> listaTareas(){
+    public HashMap<Integer, Tasks> listaTareas(){
         return tareaDao.getTareas();
     }
 
-    public Map<Integer, Tareas> listatareasCompletas() {
+    public Map<Integer, Tasks> listatareasCompletas() {
         return tareaDao.getTareasCompletadas();
     }
 

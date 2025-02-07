@@ -1,23 +1,23 @@
 package com.pium;
 
-import com.pium.builder.Tareas;
+import com.pium.builder.Tasks;
 import com.pium.repository.TaskDao;
 import com.pium.repository.Repository;
-import com.pium.service.TareasService;
+import com.pium.service.TasksService;
 
 import java.util.Map;
 import java.util.Scanner;
 
-public class Aplicacion {
+public class App {
     public Repository tareaDao = new TaskDao();
-    public TareasService tareasService = new TareasService(tareaDao);
+    public TasksService tareasService = new TasksService(tareaDao);
     public Scanner scanner = new Scanner(System.in);
 
-    public Aplicacion() {
+    public App() {
         tareasService.crearTarea(scanner);
         tareasService.crearTarea(scanner);
 
-        Map<Integer, Tareas> listas;
+        Map<Integer, Tasks> listas;
         tareasService.tituloUpdate(2, "Titulo Actualizado");
         tareasService.descripcionUpdate(2, "Descripcion Actualizada");
 

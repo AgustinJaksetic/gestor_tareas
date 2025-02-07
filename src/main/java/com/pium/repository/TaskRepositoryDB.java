@@ -1,5 +1,5 @@
 package com.pium.repository;
-import com.pium.builder.Tareas;
+import com.pium.builder.Tasks;
 import java.util.HashMap;
 
 public class TaskRepositoryDB {
@@ -7,7 +7,7 @@ public class TaskRepositoryDB {
     En TareasDB es donde tenemos nuestra construcción de la base de datos
     donde creamos las tablas con sus registros y campos, (en este caso usamos un hashmap como sustituto).
      */
-    static HashMap<Integer, Tareas> db_tareas = new HashMap<>(); //Nuestra "Base de datos"
+    static HashMap<Integer, Tasks> db_tareas = new HashMap<>(); //Nuestra "Base de datos"
 
     public static int generateId(){ //Generamos una primary key(id) para identificar cada registro almacenado.
         int id = 1;
