@@ -64,4 +64,7 @@ public class TasksService {
         return tareaDao.getTareasCompletadas();
     }
 
+    public void deleteTask(int id) {
+        tareaDao.deleteTask(id);
+    }
 }

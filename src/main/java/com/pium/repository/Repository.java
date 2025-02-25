@@ -10,4 +10,5 @@ public interface Repository {
     void queryTareas(Tasks tarea);
     HashMap<Integer, Tasks> getTareas();
     Map<Integer, Tasks> getTareasCompletadas();
+    void deleteTask(int id);
 }
