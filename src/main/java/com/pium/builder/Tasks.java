@@ -82,7 +82,7 @@ public String mostrarActividades() {
                 ", descripcion='" + descripcion + '\'' +
                 ", estado=" + estado +
                 ", prioridad=" + prioridad +
-                ", Actividades=" + mostrarActividades() +
+                ", Actividades=" + mostrarActividades()+ "\n" +
                 '}';
     }
 }

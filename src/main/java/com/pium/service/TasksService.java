@@ -21,8 +21,8 @@ public class TasksService {
         this.tareaDao = tareaDao;
     }
 
-    public void crearTarea(Scanner input){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
-        List<Activities> actividades = crearActividades(input);
+    public void taskCreate(Scanner input){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
+        List<Activities> actividades = activitiesCreate(input);
         tareaDao.queryTareas(
             new TasksBuilder()
                 .setTitulo("Tarea 1")
@@ -35,15 +35,7 @@ public class TasksService {
         );
     }
 
-    public void tituloUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
-        tareaDao.getTarea(id).setTitulo(titulo);
-    }
-
-    public void descripcionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
-        tareaDao.getTarea(id).setDescripcion(descripcion);
-    }
-
-    public List<Activities> crearActividades(Scanner input){
+    private List<Activities> activitiesCreate(Scanner input){
         List<Activities> lista = new ArrayList<>();
         System.out.println("Crear una actividad");
         int a = 1;
@@ -56,15 +48,35 @@ public class TasksService {
         return lista;
     }
 
-    public HashMap<Integer, Tasks> listaTareas(){
+    public Tasks getTask(int id) {
+        return tareaDao.getTarea(id);
+    }
+
+    public HashMap<Integer, Tasks> getTasks(){
         return tareaDao.getTareas();
     }
 
-    public Map<Integer, Tasks> listatareasCompletas() {
+    public Map<Integer, Tasks> getCompletedTasks() {
         return tareaDao.getTareasCompletadas();
     }
 
     public void deleteTask(int id) {
         tareaDao.deleteTask(id);
     }
+
+    public void titleUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
+        tareaDao.getTarea(id).setTitulo(titulo);
+    }
+
+    public void descriptionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
+        tareaDao.getTarea(id).setDescripcion(descripcion);
+    }
+
+
+
+
+
+
+
+
 }

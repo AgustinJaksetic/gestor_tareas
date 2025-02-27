@@ -33,4 +33,9 @@ public class MockTaskDao implements Repository {
                 .filter(entry -> entry.getValue().getEstado() == Estado.FINALIZADA)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
+
+    @Override
+    public void deleteTask(int id) {
+
+    }
 }
