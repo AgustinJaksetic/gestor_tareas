@@ -1,7 +1,7 @@
-package com.pium.app;
+package com.pium.front;
 
 import com.pium.repository.TaskDao;
-import com.pium.service.TasksService;
+import com.pium.logic.services.TasksService;
 
 import javax.swing.*;
 import java.util.Scanner;
@@ -15,6 +15,7 @@ public class App {
 
     public App() {
         service.taskCreate(sc);
+        service.descriptionUpdate(1, "Nueva descripcion");
         service.taskCreate(sc);
         frame.setVisible(true);
     }

@@ -1,4 +1,4 @@
-package com.pium.app;
+package com.pium.front;
 
 import javax.swing.*;
 import java.awt.*;
