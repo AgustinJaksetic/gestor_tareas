@@ -1,4 +1,4 @@
-package com.pium.service.music;
+package com.pium.logic.music;
 
 public class SpotifyControler {
 }
