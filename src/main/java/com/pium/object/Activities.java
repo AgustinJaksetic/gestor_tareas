@@ -1,4 +1,4 @@
-package com.pium.builder;
+package com.pium.object;
 
 public class Activities {
     private final int id;

@@ -1,7 +1,7 @@
-package com.pium.builder;
+package com.pium.object;
 
-import com.pium.builder.enums.Estado;
-import com.pium.builder.enums.Prioridad;
+import com.pium.object.enums.Estado;
+import com.pium.object.enums.Prioridad;
 
 import java.util.List;
 

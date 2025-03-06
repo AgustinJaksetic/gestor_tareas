@@ -1,7 +1,7 @@
 package com.pium.Test;
 
-import com.pium.builder.Tasks;
-import com.pium.builder.enums.Estado;
+import com.pium.object.Tasks;
+import com.pium.object.enums.Estado;
 import com.pium.repository.Repository;
 
 import java.util.HashMap;

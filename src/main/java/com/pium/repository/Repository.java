@@ -1,6 +1,6 @@
 package com.pium.repository;
 
-import com.pium.builder.Tasks;
+import com.pium.object.Tasks;
 
 import java.util.HashMap;
 import java.util.Map;

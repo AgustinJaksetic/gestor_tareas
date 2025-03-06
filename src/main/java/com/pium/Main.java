@@ -1,6 +1,6 @@
 package com.pium;
 
-import com.pium.app.App;
+import com.pium.front.App;
 
 public class Main {
     public static void main(String[] args) {

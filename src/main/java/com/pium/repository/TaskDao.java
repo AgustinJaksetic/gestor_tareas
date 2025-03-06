@@ -1,6 +1,6 @@
 package com.pium.repository;
-import com.pium.builder.Tasks;
-import com.pium.builder.enums.Estado;
+import com.pium.object.Tasks;
+import com.pium.object.enums.Estado;
 
 import java.util.HashMap;
 import java.util.Map;
