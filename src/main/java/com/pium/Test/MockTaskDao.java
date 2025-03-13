@@ -40,6 +40,6 @@ public class MockTaskDao implements Repository {
 
     @Override
     public boolean existTask(Integer id) {
-        return false;
+        return true;
     }
 }

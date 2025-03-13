@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public final class TaskDao implements Repository {
-
     /*
         TareasDao se encarga de hacer todas las consultas a nuestra
         Base de datos ( en este caso usamos un hashmap como base de datos ).
@@ -41,6 +40,6 @@ public final class TaskDao implements Repository {
 
     @Override
     public boolean existTask(Integer id) {
-        return TaskRepositoryDB.db_tareas.containsKey(id);
+        return !TaskRepositoryDB.db_tareas.containsKey(id);
     }
 }

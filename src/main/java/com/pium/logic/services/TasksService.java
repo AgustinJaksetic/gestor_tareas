@@ -22,30 +22,39 @@ public class TasksService {
     }
 
     public Tasks getTask(int id) {
-            return tareaDao.getTarea(id);
+        if(tareaDao.existTask(id)) return null;
+        return tareaDao.getTarea(id);
     }
 
     public HashMap<Integer, Tasks> getallTasks(){
-        return tareaDao.getTareas();
+        HashMap<Integer, Tasks> s = tareaDao.getTareas();
+        if(s.isEmpty()) return null;
+        return s;
     }
 
     public Map<Integer, Tasks> getCompletedTasks() {
-        return tareaDao.getTareasCompletadas();
+        Map<Integer, Tasks> s = tareaDao.getTareasCompletadas();
+        if(s.isEmpty()) return null;
+        return s;
     }
 
     public boolean deleteTask(int id) {
         if (id != 0) return false;
-        if(!tareaDao.existTask(id)) return false;
+        if(tareaDao.existTask(id)) return false;
         tareaDao.deleteTask(id);
         return true;
     }
 
-    public void titleUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
+    public boolean titleUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
+        if(!tareaDao.existTask(id)) return false;
         tareaDao.getTarea(id).setTitulo(titulo);
+        return true;
     }
 
-    public void descriptionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
+    public boolean descriptionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
+        if(!tareaDao.existTask(id)) return false;
         tareaDao.getTarea(id).setDescripcion(descripcion);
+        return true;
     }
 
 }
