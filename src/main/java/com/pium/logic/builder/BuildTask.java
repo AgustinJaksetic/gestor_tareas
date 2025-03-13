@@ -13,11 +13,11 @@ import java.util.Scanner;
 public class BuildTask {
 
 
-    public static Tasks buildTask(Scanner input){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
-        List<Activities> actividades = BuildActivitie.activitiesCreate(input);
+    public static Tasks buildTask(){ //Construimos el objeto Tareas con nuestro patron de diseño Builder y lo insertamos en la base de datos.
+        List<Activities> actividades = BuildActivitie.activitiesCreate();
             return new TasksBuilder()
-                        .setTitulo("Tarea 1")
-                        .setDescripcion("Descripcion 1")
+                        .setTitulo("Hacer las compras")
+                        .setDescripcion("Llevar paraguas por si llueve")
                         .setPrioridad(Prioridad.ALTA)
                         .setActividades(actividades)
                         .setEstado(Estado.FINALIZADA)

@@ -8,15 +8,10 @@ import java.util.Scanner;
 
 public class BuildActivitie {
 
-    static List<Activities> activitiesCreate(Scanner input){
+    static List<Activities> activitiesCreate(){
         List<Activities> lista = new ArrayList<>();
-        System.out.println("Crear una actividad");
-        int a = 1;
-        do {
-            lista.add(new Activities("Actividad "+ a, "Descripcion " + a, a++));
-            System.out.println("Crear otra actividad?");
+            lista.add(new Activities("Comprar pan", "En Coto", 1));
 
-        } while (!input.nextLine().equalsIgnoreCase("no"));
 
         return lista;
     }

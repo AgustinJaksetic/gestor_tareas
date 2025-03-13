@@ -11,4 +11,5 @@ public interface Repository {
     HashMap<Integer, Tasks> getTareas();
     Map<Integer, Tasks> getTareasCompletadas();
     void deleteTask(int id);
+    boolean existTask(Integer id);
 }

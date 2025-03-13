@@ -1,23 +1,16 @@
 package com.pium.front;
 
-import com.pium.repository.TaskDao;
 import com.pium.logic.services.TasksService;
-
-import javax.swing.*;
-import java.util.Scanner;
+import com.pium.object.Tasks;
+import com.pium.repository.Repository;
+import com.pium.repository.TaskDao;
 
 public class App {
-    static Scanner sc = new Scanner(System.in);
-    static TaskDao dao = new TaskDao();
-    static TasksService service = new TasksService(dao);
-    JFrame frame = new Window();
+    Repository dao = new TaskDao();
+    TasksService service = new TasksService(dao);
+    public void App(){
+        service.taskCreate();
 
-
-    public App() {
-        service.taskCreate(sc);
-        service.descriptionUpdate(1, "Nueva descripcion");
-        service.taskCreate(sc);
-        frame.setVisible(true);
+        if(!service.deleteTask(1));
     }
-
 }

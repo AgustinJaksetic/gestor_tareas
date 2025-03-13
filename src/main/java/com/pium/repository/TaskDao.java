@@ -38,4 +38,9 @@ public final class TaskDao implements Repository {
     public void deleteTask(int id) {
         TaskRepositoryDB.db_tareas.remove(id);
     }
+
+    @Override
+    public boolean existTask(Integer id) {
+        return TaskRepositoryDB.db_tareas.containsKey(id);
+    }
 }

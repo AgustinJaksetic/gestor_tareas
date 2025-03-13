@@ -34,9 +34,8 @@ public class Activities {
     @Override
     public String toString() {
         return "\n[" +
-                "id=" + id +
-                ", titulo='" + titulo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
+                " titulo='" + titulo + "\n" +
+                ", descripcion='" + descripcion + "\n" +
                 ']' + "\n";
     }
 }

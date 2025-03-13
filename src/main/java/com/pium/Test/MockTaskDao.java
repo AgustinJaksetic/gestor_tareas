@@ -36,6 +36,10 @@ public class MockTaskDao implements Repository {
 
     @Override
     public void deleteTask(int id) {
+    }
 
+    @Override
+    public boolean existTask(Integer id) {
+        return false;
     }
 }

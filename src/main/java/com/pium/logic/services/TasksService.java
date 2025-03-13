@@ -17,17 +17,15 @@ public class TasksService {
         this.tareaDao = tareaDao;
     }
 
-    public void taskCreate(Scanner s){
-        tareaDao.queryTareas(BuildTask.buildTask(s));
+    public void taskCreate(){
+        tareaDao.queryTareas(BuildTask.buildTask());
     }
-
-
 
     public Tasks getTask(int id) {
-        return tareaDao.getTarea(id);
+            return tareaDao.getTarea(id);
     }
 
-    public HashMap<Integer, Tasks> getTasks(){
+    public HashMap<Integer, Tasks> getallTasks(){
         return tareaDao.getTareas();
     }
 
@@ -35,8 +33,11 @@ public class TasksService {
         return tareaDao.getTareasCompletadas();
     }
 
-    public void deleteTask(int id) {
+    public boolean deleteTask(int id) {
+        if (id != 0) return false;
+        if(!tareaDao.existTask(id)) return false;
         tareaDao.deleteTask(id);
+        return true;
     }
 
     public void titleUpdate(int id, String titulo){ //Actualizamos el título de la tarea indicada por él id.
@@ -46,12 +47,5 @@ public class TasksService {
     public void descriptionUpdate(int id, String descripcion){ //Actualizamos la descripcion de la tarea indicada por él id.
         tareaDao.getTarea(id).setDescripcion(descripcion);
     }
-
-
-
-
-
-
-
 
 }
