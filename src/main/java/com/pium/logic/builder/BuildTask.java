@@ -8,7 +8,6 @@ import com.pium.object.enums.Prioridad;
 import com.pium.repository.TaskRepositoryDB;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class BuildTask {
 

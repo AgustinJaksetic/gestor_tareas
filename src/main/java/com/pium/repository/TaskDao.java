@@ -40,6 +40,6 @@ public final class TaskDao implements Repository {
 
     @Override
     public boolean existTask(Integer id) {
-        return !TaskRepositoryDB.db_tareas.containsKey(id);
+        return TaskRepositoryDB.db_tareas.containsKey(id);
     }
 }
